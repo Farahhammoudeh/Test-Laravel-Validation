@@ -18,4 +18,4 @@ class ArticleController extends Controller
 
         Article::create(['title' => $request->title]);
     }
-}
+} 

@@ -2,13 +2,11 @@
     @csrf
     Name:
     <br />
-    <input type="text" name="name" />
-    <br />
-    {{-- TASK: show the validation error for the specific "name" field --}}
-    {{-- using one Blade directive: pseudo-code below --}}
-    {{-- @directive --}}
-    {{-- {{ $message }} --}}
-    {{-- @endDirective --}}
+    <input type="text" name="name" value="{{ old('name') }}" />
+    {{-- Show the validation error for the "name" field --}}
+    @error('name')
+        <p>{{ $message }}</p>
+    @enderror
     <br /><br />
     <button type="submit">Save</button>
 </form>

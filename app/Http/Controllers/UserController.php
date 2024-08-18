@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
     public function update(User $user, UpdateUserRequest $request)
     {
-        // TASK: change this line to not allow is_admin field to be updated
-        // Update only the fields that are validated in UpdateUserRequest
-        $user->update($request->all());
-
+        // Update only the fields that are validated in UpdateUserRequest, excluding 'is_admin'
+        $user->update($request->only(['name', 'email'])); // Adjust the fields as necessary
+    
         return 'Success';
     }
 }
